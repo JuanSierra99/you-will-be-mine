@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
 	const randomizeAnimation = () => {
 		const duration = Math.random() * 10 + 2;
 		const delay = Math.random() * 3;
@@ -11,39 +10,69 @@
 	};
 
 	const randomColor = () => {
-		const colors = ['white', 'black'];
-		const random = colors[Math.floor(Math.random() * colors.length)];
+		const colors = ['black', 'white', 'white'];
+		const random = colors[Math.floor(randomBetween(0, 2))];
 		return random;
+	};
+
+	const randomBetween = (minimum: number, maximum: number) => {
+		return Math.random() * (maximum - minimum) + minimum;
+	};
+
+	let confettis: any;
+	confettis = Array(50)
+		.fill(null)
+		.map((_, i) => {
+			return {
+				id: i,
+				style: `
+		--x-translate: ${randomBetween(-400, 500)}px;
+		--y-translate: ${randomBetween(-400, 500)}px;
+		--animation-delay: ${randomBetween(0, 0.2)}s;
+		--animation-duration: ${randomBetween(1, 2)}s;
+		--rotation: ${randomBetween(-360, 360)}deg;
+    `
+			};
+		});
+
+	const explodeAgain = (id: number) => {
+		confettis = confettis.filter((c) => c.id !== id);
 	};
 </script>
 
-{#each Array(50) as _, i}
-	<span
-		class="confetti"
-		style="transform: translateX(--var{Math.random() *
-			screen.availWidth}px); width: {randomSize()}; height:{randomSize()}; background-color: {randomColor()}"
-	></span>
+{#each confettis as c}
+	<button style={c.style} class="confetti" on:click={() => explodeAgain(c.id)}>
+		<img src="./heart-solid.svg" class="heart" alt="..." />
+	</button>
 {/each}
 
 <style>
-	.confetti {
-		left: 0;
-		top: 0;
-		position: absolute;
+	.heart {
 		width: 10px;
-		height: 10px;
-		background-color: lightblue;
-		animation: explosion 2s;
+		height: auto;
+	}
+
+	.confetti {
+		position: absolute;
+		width: auto;
+		height: auto;
+		border: none;
+		background-color: transparent;
+		animation: explosion var(--animation-duration);
+		animation-delay: var(--animation-delay);
+		animation-fill-mode: forwards;
 	}
 
 	@keyframes explosion {
-		from {
-			transform: translateX(0);
-			transform: translateY(0);
+		0%,
+		25%,
+		50% {
+			/* background-color: var(--confetti-color); */
 		}
-		to {
-			transform: translateX(0);
-			transform: translateY(100px);
+		75%,
+		100% {
+			transform: translate(var(--x-translate), var(--y-translate)) rotate(var(--rotation));
+			/* background-color: transparent; */
 		}
 	}
 </style>
