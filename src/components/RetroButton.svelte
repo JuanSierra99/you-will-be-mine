@@ -44,7 +44,7 @@
 {/if}
 
 {#if yes_clicked}
-	<Confetti xOrigin={500} yOrigin={0} />
+	<Confetti xOrigin={500} yOrigin={500} confettiAmmount={100} displace={false} />
 {/if}
 
 <style>
