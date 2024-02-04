@@ -1,9 +1,19 @@
 <script lang="ts">
+	import Confetti from './Confetti.svelte';
+	export let xOrigin: number;
+	export let yOrigin: number;
+	let popped = false;
+	let poppedX: number;
+	let poppedY: number;
+
 	const randomizeAnimation = () => {
 		const duration = Math.random() * 10 + 2;
 		const delay = Math.random() * 3;
 		return 'explosion 1s';
 	};
+
+	const halfScreen = screen.availHeight / 2;
+	const halfWidth = screen.availWidth / 2;
 
 	const randomSize = () => {
 		return `${Math.random() * 8 + 2}px`;
@@ -20,14 +30,16 @@
 	};
 
 	let confettis: any;
-	confettis = Array(50)
+	confettis = Array(200)
 		.fill(null)
 		.map((_, i) => {
 			return {
 				id: i,
 				style: `
-		--x-translate: ${randomBetween(-400, 500)}px;
-		--y-translate: ${randomBetween(-400, 500)}px;
+		--x-origin: ${xOrigin}px;
+		--y-origin: ${yOrigin}px;
+		--x-translate: ${randomBetween(-halfWidth, halfWidth)}px;
+		--y-translate: ${randomBetween(-halfScreen, halfScreen - 200)}px;
 		--animation-delay: ${randomBetween(0, 0.2)}s;
 		--animation-duration: ${randomBetween(1, 2)}s;
 		--rotation: ${randomBetween(-360, 360)}deg;
@@ -35,16 +47,24 @@
 			};
 		});
 
-	const explodeAgain = (id: number) => {
+	const clusterBombs = (id: number, event: MouseEvent) => {
+		poppedX = event.clientX;
+		poppedY = event.clientY;
+
+		popped = true;
 		confettis = confettis.filter((c) => c.id !== id);
 	};
 </script>
 
 {#each confettis as c}
-	<button style={c.style} class="confetti" on:click={() => explodeAgain(c.id)}>
+	<button style={c.style} class="confetti" on:click={(event) => clusterBombs(c.id, event)}>
 		<img src="./heart-solid.svg" class="heart" alt="..." />
 	</button>
 {/each}
+
+{#if popped}
+	<Confetti xOrigin={poppedX} yOrigin={poppedY} />
+{/if}
 
 <style>
 	.heart {
@@ -53,8 +73,10 @@
 	}
 
 	.confetti {
+		top: var(--y-origin);
+		left: var(--x-origin);
 		position: absolute;
-		width: auto;
+		width: fit-content;
 		height: auto;
 		border: none;
 		background-color: transparent;
