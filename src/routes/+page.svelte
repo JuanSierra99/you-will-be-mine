@@ -127,7 +127,6 @@
 	.my-love-heart2,
 	.i-love-you-heart1,
 	.i-love-you-heart2 {
-		z-index: 999;
 		height: 4em;
 		animation: closer-animation 5s linear none 1 normal;
 		animation-timeline: scroll();
