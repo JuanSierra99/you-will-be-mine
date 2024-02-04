@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Confetti from './Confetti.svelte';
 	export let text: string;
 	export let showCapcha: boolean;
+	import Confetti from './Confetti.svelte';
 	let yes_clicked = false;
 	let peopleNumber = 0;
 	let modal_visibility = false;
@@ -21,7 +21,7 @@
 	/*pretty much just dark mode but sexy*/
 	const setTheMood = () => {
 		yes_clicked = !yes_clicked;
-		window.document.body.classList.toggle('dark-mode');
+		// window.document.body.classList.toggle('dark-mode');
 	};
 </script>
 
@@ -34,7 +34,7 @@
 		<p class="prove-text">prove you are not a robot</p>
 		<img class="modal-image" src="./people.jpg" alt="..." />
 		<div class="select-number-section">
-			<p class="prove-text">How many people are in this image ?</p>
+			<p class="prove-text">How many people are in this photo:</p>
 			<input type="number" bind:value={peopleNumber} />
 			<button on:click={checkNumAnswer}>enter</button>
 		</div>
@@ -44,7 +44,7 @@
 {/if}
 
 {#if yes_clicked}
-	<Confetti></Confetti>
+	<Confetti />
 {/if}
 
 <style>
