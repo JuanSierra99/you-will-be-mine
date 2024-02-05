@@ -8,8 +8,8 @@
 	<RetroText text={'BE MY'} />
 	<RetroText text={'VALENTINE'} />
 	<div class="retro-buttons">
-		<RetroButton text={'YES'} showCapcha={false} />
-		<RetroButton text={'NO'} showCapcha={true} />
+		<RetroButton text={'YES'} showCaptcha={false} />
+		<RetroButton text={'NO'} showCaptcha={true} />
 	</div>
 </div>
 
@@ -33,24 +33,11 @@
 		</div>
 	</div>
 </div>
-<circle id="MyCircle" cx="50" cy="50" r="40" fill="none" stroke="red" />
-
-<text>
-	<!-- Apply the font-family to the text element -->
-	<textPath href="#MyCircle" startOffset="50%" style="font-family: 'YourFontName';"
-		>Quick brown fox jumps over the lazy dog.</textPath
-	>
-</text>
 
 <style>
 	:global(body) {
 		z-index: -9999;
 		background-color: #ffe5ec;
-		transition: background-color 1s;
-	}
-
-	:global(body.dark-mode) {
-		background-color: #880d1e;
 	}
 
 	.page-grid {
@@ -65,7 +52,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 		position: fixed;
 		animation: anime 1s ease-in-out 1 normal;
 		animation-timeline: scroll();
