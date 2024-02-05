@@ -28,6 +28,6 @@
 
 	@font-face {
 		font-family: 'retro';
-		src: url('./fonts/BambiRetro-WyjGG.ttf');
+		src: url('/fonts/BambiRetro-WyjGG.ttf');
 	}
 </style>
