@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let text: string;
-	export let showCapcha: boolean;
+	export let showCaptcha: boolean;
 	import Confetti from './Confetti.svelte';
 	let yes_clicked = false;
 	let peopleNumber = 0;
@@ -25,11 +25,11 @@
 	};
 </script>
 
-<button class="retro-button" on:click={showCapcha ? changeModalVisibility : setTheMood}
+<button class="retro-button" on:click={showCaptcha ? changeModalVisibility : setTheMood}
 	>{text}</button
 >
 
-{#if modal_visibility && showCapcha}
+{#if modal_visibility && showCaptcha}
 	<div class="modal">
 		<p class="prove-text">prove you are not a robot</p>
 		<img class="modal-image" src="./people.jpg" alt="..." />
@@ -44,20 +44,26 @@
 {/if}
 
 {#if yes_clicked}
-	<Confetti xOrigin={500} yOrigin={500} confettiAmmount={100} displace={false} />
+	<Confetti
+		xOrigin={screen.width / 2}
+		yOrigin={screen.height / 2}
+		confettiAmmount={100}
+		displace={false}
+	/>
 {/if}
 
 <style>
 	.retro-button {
 		height: 3rem;
-		padding: 1rem;
+		padding: 1rem 2rem 1rem 2rem;
+		margin: 1rem;
 		color: white;
-		background-color: pink;
-		width: 5rem;
+		background-color: #ffc8dd;
+		width: fit-content;
 		font-family: 'retro';
 		border-radius: 1rem;
 		border: none;
-		box-shadow: 3px 2px 0px red;
+		box-shadow: 3px 2px 0px #e63946;
 	}
 
 	@font-face {
@@ -66,7 +72,8 @@
 	}
 
 	.retro-button:hover {
-		box-shadow: 3px 3px 0px rgb(220, 63, 63);
+		background-color: #ffafcc;
+		box-shadow: 4px 3px 0px #e63946;
 	}
 
 	.prove-text {
