@@ -32,7 +32,7 @@
 {#if modal_visibility && showCaptcha}
 	<div class="modal">
 		<p class="prove-text">prove you are not a robot</p>
-		<img class="modal-image" src="./people.jpg" alt="..." />
+		<img class="modal-image" src="./crowd_of_people.webp" alt="..." />
 		<div class="select-number-section">
 			<p class="prove-text">How many people are in this photo:</p>
 			<input type="number" bind:value={peopleNumber} />
@@ -44,15 +44,31 @@
 {/if}
 
 {#if yes_clicked}
-	<Confetti
-		xOrigin={screen.width / 2}
-		yOrigin={screen.height / 2}
-		confettiAmmount={100}
-		displace={false}
-	/>
+	<div class="contain">
+		<Confetti
+			clusterBomb={true}
+			animationDuaration={[1, 5]}
+			xDomain={[-screen.width / 2, screen.width / 2]}
+			yDomain={[0, screen.height]}
+			xOrigin={screen.width / 2}
+			yOrigin={0}
+			confettiAmmount={100}
+			displace={false}
+		/>
+	</div>
 {/if}
 
 <style>
+	.contain {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		pointer-events: none;
+		/* background-color: green; */
+	}
+
 	.retro-button {
 		height: 3rem;
 		padding: 1rem 2rem 1rem 2rem;
