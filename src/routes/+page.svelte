@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import RetroButton from '../components/RetroButton.svelte';
 	import RetroText from '../components/RetroText.svelte';
 </script>
@@ -28,8 +28,6 @@
 			<img src="./hearts/i-love-you.svg" class="i-love-you-heart1" alt="..." />
 			<img src="./hearts/i-love-you.svg" class="i-love-you-heart2" alt="..." />
 			<img src="./hearts/i-love-you.svg" class="i-love-you-heart3" alt="..." />
-			<div class="buttons"></div>
-			<!-- <img src="./cloud.png" class="cloud-left" alt="..." /> -->
 		</div>
 	</div>
 </div>
