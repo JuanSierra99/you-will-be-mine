@@ -1,12 +1,14 @@
 <script lang="ts">
 	import RetroButton from '../components/RetroButton.svelte';
 	import RetroText from '../components/RetroText.svelte';
+	export const mainText = ['YOU WILL', 'BE MY', 'VALENTINE'];
 </script>
 
 <div class="retro-container">
-	<RetroText text={'YOU WILL'} />
-	<RetroText text={'BE MY'} />
-	<RetroText text={'VALENTINE'} />
+	{#each mainText as t}
+		<RetroText text={t} />
+	{/each}
+
 	<div class="retro-buttons">
 		<RetroButton text={'YES'} showCaptcha={false} />
 		<RetroButton text={'NO'} showCaptcha={true} />
