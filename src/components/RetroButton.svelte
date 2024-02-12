@@ -59,6 +59,7 @@
 {/if}
 
 <style>
+	/*The container that will hold all the confetti */
 	.contain {
 		top: 0;
 		left: 0;
@@ -107,8 +108,8 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		z-index: 1000;
 		overflow: hidden;
-		z-index: 100;
 		top: 0;
 		left: 1/2;
 		right: 1/2;
