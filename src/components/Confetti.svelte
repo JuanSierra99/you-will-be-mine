@@ -86,7 +86,7 @@
 					yDomain={[-100, 100]}
 					xOrigin={0}
 					yOrigin={0}
-					confettiAmmount={10}
+					confettiAmmount={5}
 					vanish={false}
 					displace={false}
 					colors={[
