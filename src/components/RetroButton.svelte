@@ -1,74 +1,12 @@
 <script lang="ts">
 	export let text: string;
-	export let showCaptcha: boolean;
-	import Confetti from './Confetti.svelte';
-	let yes_clicked = false;
-	let peopleNumber = 0;
-	let modal_visibility = false;
-	/*We will show this if the no button is clicked*/
-	const changeModalVisibility = () => {
-		modal_visibility = !modal_visibility;
-	};
-
-	/*do something if they somehow guess the right answer for capcha*/
-	const checkNumAnswer = () => {
-		if (peopleNumber === 911) {
-			return true;
-		}
-		return false;
-	};
-
-	/*pretty much just dark mode but sexy*/
-	const setTheMood = () => {
-		yes_clicked = !yes_clicked;
-		// window.document.body.classList.toggle('dark-mode');
-	};
+	export let buttonClickFunction;
 </script>
 
-<button class="retro-button" on:click={showCaptcha ? changeModalVisibility : setTheMood}
-	>{text}</button
->
-
-{#if modal_visibility && showCaptcha}
-	<div class="modal">
-		<p class="prove-text">prove you are not a robot</p>
-		<img class="modal-image" src="./crowd_of_people.webp" alt="..." />
-		<div class="select-number-section">
-			<p class="prove-text">How many people are in this photo:</p>
-			<input type="number" bind:value={peopleNumber} />
-			<button on:click={checkNumAnswer}>enter</button>
-		</div>
-
-		<button on:click={changeModalVisibility}>back</button>
-	</div>
-{/if}
-
-{#if yes_clicked}
-	<div class="contain">
-		<Confetti
-			clusterBomb={true}
-			animationDuaration={[1, 5]}
-			xDomain={[-screen.width / 2, screen.width / 2]}
-			yDomain={[0, screen.height]}
-			xOrigin={screen.width / 2}
-			yOrigin={0}
-			confettiAmmount={100}
-			displace={false}
-		/>
-	</div>
-{/if}
+<button class="retro-button" on:click={buttonClickFunction}>{text}</button>
 
 <style>
 	/*The container that will hold all the confetti */
-	.contain {
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		pointer-events: none;
-		/* background-color: green; */
-	}
 
 	.retro-button {
 		height: 3rem;
@@ -91,39 +29,5 @@
 	.retro-button:hover {
 		background-color: #ffafcc;
 		box-shadow: 4px 3px 0px #e63946;
-	}
-
-	.prove-text {
-		text-align: center;
-		color: black;
-	}
-
-	.select-number-section {
-		display: flex;
-		justify-content: center;
-		flex-direction: row;
-	}
-
-	.modal {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		z-index: 1000;
-		overflow: hidden;
-		top: 0;
-		left: 1/2;
-		right: 1/2;
-		transform: translateX(-50%);
-		position: absolute;
-		width: fit-content;
-		height: fit-content;
-		background-color: white;
-	}
-
-	.modal-image {
-		margin-left: auto;
-		margin-right: auto;
-		width: 100%;
-		height: auto;
 	}
 </style>
