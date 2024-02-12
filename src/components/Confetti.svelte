@@ -1,16 +1,16 @@
 <script lang="ts">
 	import Confetti from './Confetti.svelte';
-	export let xOrigin: number;
-	export let yOrigin: number;
-	export let confettiAmmount: number;
+	export let xOrigin: number; // Starting x poistion of confetti, retlative to container it is in.
+	export let yOrigin: number; // starting y position of confetti, relative to container it is in.
+	export let confettiAmmount: number; // The number of individual confetti pieces
 	export let displace: boolean;
-	export let vanish: boolean;
-	export let colors: Array<string> = [];
-	export let xDomain: [number, number];
-	export let yDomain: [number, number];
+	export let vanish: boolean; // True means confetti will vanish away as part of the animation.
+	export let colors: Array<string> = []; // An array of random colors for each confetti piece, which wll be applied randomly.
+	export let xDomain: [number, number]; // Range it will travel in px in x-direction
+	export let yDomain: [number, number]; // Range it will travel in px in y-direction
 	export let animationDuaration: [number, number];
-	export let showOverflow: boolean;
-	export let clusterBomb = false;
+	export let showOverflow: boolean; // Determines if it shows outside of container it is in
+	export let clusterBomb = false; // Determines if it will burst into clusters when clicked
 
 	const getColor = () => {
 		if (colors.length > 0) {
@@ -57,6 +57,7 @@
 		removeConfetti(id);
 	};
 
+	//HMMM What if we just dont remove the confetti. Lets make a mess !
 	const removeConfetti = (id: number) => {
 		// setTimeout(() => {
 		// 	confettis = confettis.filter((c) => c.id !== id);
@@ -89,19 +90,7 @@
 					confettiAmmount={5}
 					vanish={false}
 					displace={false}
-					colors={[
-						'#c1121f',
-						'#eb5e28',
-						'#fcca46',
-						'#a1c181',
-						'#4361ee',
-						'#7209b7',
-						'#e4c1f9',
-						'#43aa8b',
-						'#2c6e49',
-						'#ff7b00',
-						'#bbd0ff'
-					]}
+					colors={['#3772ff', '#e63946', '#c77dff', '#3a86ff', '#8ac926']}
 				/>
 			{/if}
 		</button>
