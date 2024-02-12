@@ -2,16 +2,47 @@
 	import RetroButton from '../components/RetroButton.svelte';
 	import RetroText from '../components/RetroText.svelte';
 	export const mainText = ['YOU WILL', 'BE MY', 'VALENTINE'];
+	import Confetti from '../components/Confetti.svelte';
+	import Captcha from '../components/Captcha.svelte';
+	let yes_button_clicked = false;
+	let no_button_clicked = false;
 </script>
 
 <div class="retro-container">
-	{#each mainText as t}
-		<RetroText text={t} />
+	{#each mainText as txt}
+		<RetroText text={txt} />
 	{/each}
 
 	<div class="retro-buttons">
-		<RetroButton text={'YES'} showCaptcha={false} />
-		<RetroButton text={'NO'} showCaptcha={true} />
+		<RetroButton
+			text={'YES'}
+			buttonClickFunction={() => {
+				yes_button_clicked = !yes_button_clicked;
+			}}
+		/>
+		<RetroButton
+			text={'NO'}
+			buttonClickFunction={() => {
+				no_button_clicked = !no_button_clicked;
+			}}
+		/>
+		{#if yes_button_clicked}
+			<div class="contain">
+				<Confetti
+					clusterBomb={true}
+					animationDuaration={[1, 5]}
+					xDomain={[-screen.width / 2, screen.width / 2]}
+					yDomain={[0, screen.height]}
+					xOrigin={screen.width / 2}
+					yOrigin={0}
+					confettiAmmount={100}
+					displace={false}
+				/>
+			</div>
+		{/if}
+		{#if no_button_clicked}
+			<Captcha></Captcha>
+		{/if}
 	</div>
 </div>
 
@@ -35,6 +66,15 @@
 </div>
 
 <style>
+	.contain {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		pointer-events: none;
+		/* background-color: green; */
+	}
 	:global(body) {
 		z-index: -9999;
 		background-color: #ffe5ec;
