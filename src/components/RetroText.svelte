@@ -15,6 +15,7 @@
 	}
 
 	.retro-text {
+		pointer-events: none;
 		font-size: 4rem;
 		text-align: center;
 		margin: 0;
