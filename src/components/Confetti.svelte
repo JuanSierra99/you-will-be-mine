@@ -83,11 +83,11 @@
 					clusterBomb={true}
 					showOverflow={true}
 					animationDuaration={[1, 2]}
-					xDomain={[-100, 100]}
-					yDomain={[-100, 100]}
+					xDomain={[-125, 125]}
+					yDomain={[-125, 125]}
 					xOrigin={0}
 					yOrigin={0}
-					confettiAmmount={5}
+					confettiAmmount={6}
 					vanish={false}
 					displace={false}
 					colors={['#3772ff', '#e63946', '#c77dff', '#3a86ff', '#8ac926']}
