@@ -31,9 +31,9 @@
 				<Confetti
 					clusterBomb={true}
 					animationDuaration={[1, 5]}
-					xDomain={[-screen.width / 2, screen.width / 2]}
+					xDomain={[-window.innerWidth / 2, window.innerWidth / 2]}
 					yDomain={[0, screen.height]}
-					xOrigin={screen.width / 2}
+					xOrigin={window.innerWidth / 2}
 					yOrigin={0}
 					confettiAmmount={100}
 					displace={false}
@@ -75,9 +75,12 @@
 		pointer-events: none;
 		/* background-color: green; */
 	}
+
 	:global(body) {
 		z-index: -9999;
 		background-color: #ffe5ec;
+		padding: 1;
+		margin: 0;
 	}
 
 	.page-grid {
