@@ -4,7 +4,7 @@
 
 <div class="modal">
 	<img class="modal-image" src="./crowd_of_people.webp" alt="crowd of people" />
-	<p class="prove-text">Prove you are not a bot</p>
+	<p class="prove-text">Prove you aren't a robot</p>
 	<div class="select-number-section">
 		<p class="prove-text">How many people are in this photo 🤨:</p>
 		<input type="number" />
@@ -12,7 +12,7 @@
 	</div>
 	<button
 		on:click={() => {
-			showCaptcha;
+			showCaptcha();
 		}}
 		class="modal-back-button">back</button
 	>
