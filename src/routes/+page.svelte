@@ -5,7 +5,11 @@
 	import Confetti from '../components/Confetti.svelte';
 	import Captcha from '../components/Captcha.svelte';
 	let yes_button_clicked = false;
-	let no_button_clicked = false;
+	let showCaptcha = false;
+
+	const toggleCaptchaVisibility = () => {
+		showCaptcha = !showCaptcha;
+	};
 </script>
 
 <div class="retro-container">
@@ -23,7 +27,7 @@
 		<RetroButton
 			text={'NO'}
 			buttonClickFunction={() => {
-				no_button_clicked = !no_button_clicked;
+				showCaptcha = true;
 			}}
 		/>
 		{#if yes_button_clicked}
@@ -40,8 +44,8 @@
 				/>
 			</div>
 		{/if}
-		{#if no_button_clicked}
-			<Captcha></Captcha>
+		{#if showCaptcha}
+			<Captcha showCaptcha={toggleCaptchaVisibility}></Captcha>
 		{/if}
 	</div>
 </div>

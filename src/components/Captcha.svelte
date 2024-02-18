@@ -1,10 +1,10 @@
 <script>
-	export let modal_visibility = false;
+	export let showCaptcha;
 </script>
 
 <div class="modal">
 	<img class="modal-image" src="./crowd_of_people.webp" alt="crowd of people" />
-	<p class="prove-text">Prove you aren't a robot</p>
+	<p class="prove-text">Prove you are not a bot</p>
 	<div class="select-number-section">
 		<p class="prove-text">How many people are in this photo 🤨:</p>
 		<input type="number" />
@@ -12,7 +12,7 @@
 	</div>
 	<button
 		on:click={() => {
-			modal_visibility = !modal_visibility;
+			showCaptcha;
 		}}
 		class="modal-back-button">back</button
 	>
@@ -32,17 +32,16 @@
 
 	.modal {
 		border-radius: 1rem;
-		padding: 1em 1em 1em 1em;
+		padding: 1em;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
 		z-index: 1000;
 		overflow: hidden;
-		top: 0;
-		left: 1/2;
-		right: 1/2;
-		transform: translateX(-50%);
 		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		width: fit-content;
 		height: fit-content;
 		background-color: rgb(248, 66, 66);
