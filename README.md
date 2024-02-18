@@ -1,38 +1,20 @@
-# create-svelte
+## How to Access the Application
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+**Visit the Application:** Access the web application by navigating to [https://master--superlative-cuchufli-eb7a5e.netlify.app/](https://master--superlative-cuchufli-eb7a5e.netlify.app/). This link will direct you to the main interface where you can start exploring its features.
 
-## Creating a project
+### Important Compatibility Notice
 
-If you're seeing this, you've probably already done this step. Congrats!
+**Browser Compatibility:** Please note that the application leverages the Scroll API, which might not be supported by all web browsers. For the best experience, we highly recommend using **Google Chrome** as your browser of choice. Users of Safari and other browsers might encounter limitations due to compatibility issues with the Scroll API.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Compability information at https://caniuse.com/?search=animation-timeline%3A%20scroll()
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+**Screen Size Consideration:** The application is optimized for desktop use and requires a fullscreen window for optimal functionality. We advise against using it on smaller screens or mobile devices to ensure you get the full experience without any compromises.
 
-## Developing
+By adhering to these recommendations, you can enjoy the full capabilities and features of our application without any hindrances. Thank you for your understanding and cooperation.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## DEMONSTRATION
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+**🎉Confetti 🎉**
+![kaboom](./static/demo_gifs/kaboom.gif)
+**💕Cluster Bombs💕**
+![clusters](./static/demo_gifs/clusters.gif)
