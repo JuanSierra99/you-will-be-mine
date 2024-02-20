@@ -4,7 +4,7 @@
 
 ### Important Compatibility Notice
 
-**Browser Compatibility:** Please note that the application leverages the Scroll API, which might not be supported by all web browsers. For the best experience, we highly recommend using **Google Chrome** as your browser of choice. Users of Safari and other browsers might encounter limitations due to compatibility issues with the Scroll API.
+**Browser Compatibility:** Please note that the application leverages the Scroll API, which might not be supported by all web browsers. For the best experience, I highly recommend using **Google Chrome** as your browser of choice. Users of Safari and other browsers might encounter limitations due to compatibility issues with the Scroll API.
 
 Compability information at https://caniuse.com/?search=animation-timeline%3A%20scroll()
 
