@@ -2,7 +2,7 @@
 
 **Visit the Application:** Access the web application by navigating to [https://master--superlative-cuchufli-eb7a5e.netlify.app/](https://master--superlative-cuchufli-eb7a5e.netlify.app/). This link will direct you to the main interface where you can start exploring its features.
 
-### Important Compatibility Notice
+### ⚠️Important Compatibility Notice⚠️
 
 **Browser Compatibility:** Please note that the application leverages the Scroll API, which might not be supported by all web browsers. For the best experience, I highly recommend using **Google Chrome** as your browser of choice. Users of Safari and other browsers might encounter limitations due to compatibility issues with the Scroll API.
 
